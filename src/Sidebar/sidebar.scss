@@ -1,0 +1,59 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    position: sticky;
+    left: 0px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    
+
+    p{
+        font-weight: 700;
+        padding: 10px;
+    }
+
+    a {
+        width: 90%;
+        text-decoration: none;
+        padding: 10px;
+        color: #3e4151;
+
+        &:hover {
+            background-color: rgb(209, 208, 208);
+            border-radius: 10px;
+            width: 90%;
+        }
+    }
+
+    .top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .second-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .explore {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.active-link{
+    font-weight: 700;
+    background-color:rgb(209, 208, 208);;
+    border-radius: 10px;
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+

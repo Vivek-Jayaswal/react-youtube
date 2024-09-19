@@ -1,0 +1,59 @@
+.navbar{
+    background-color: pink;
+    height: 60px;
+    position: sticky;
+    top: 0px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+
+    .navbar-middle{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .input{
+            display: flex;
+            align-items: center;
+            input{
+                width: 35vw;
+                padding: 10px 10px;
+                border-right: none;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+
+            input:focus{
+                outline: none;
+            }
+
+            .btn{
+                padding: 6px 7px;
+                border-left: none;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .mic{
+            padding: 8px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .navbar-right{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        span{
+            cursor: pointer;
+            height: 20px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.home{
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 30px;
+    padding: 20px;
+}
+
+.video-card{
+    width: 400px;
+    border-radius: 10px;
+    img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    cursor: pointer;
+}

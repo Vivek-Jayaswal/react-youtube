@@ -1,0 +1,54 @@
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
+}
+
+.name-comment{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    span{
+        cursor: pointer;
+    }
+}
+
+.user-image{
+    img{
+        border-radius: 50%;
+    }
+}
+
+.comment{
+    display: flex;
+    gap: 20px;
+}
+
+.user-intraction{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.likedislike{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.reply{
+    display: flex;
+    color: blue;
+    gap: 10px;
+    div{
+        display: flex;
+        gap: 5px;
+    }
+}

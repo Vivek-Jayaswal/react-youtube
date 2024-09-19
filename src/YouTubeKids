@@ -1,0 +1,86 @@
+import { useEffect, useRef, useState } from "react";
+import ChannelInfo from "../ChannelInfo/ChannelInfo";
+import VideoInfo from "../VideoInfo/VideoInfo";
+import Comment from "../CommentInfo/Comment";
+import "./videopage.css";
+import NavBar from "../../../Navbar/Navbar";
+import RecommendedVideo from "../Recommended/RecommendedVideo";
+import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+
+const VideoPage = () => {
+    const playerRef = useRef(null);
+    const [player, setPlayer] = useState(null);
+    const [searchParams] = useSearchParams();
+    const videoId = searchParams.get('videoId');
+    const channelData = useSelector((state) => state.channeldetails.details);
+
+    const createPlayer = () => {
+        if (playerRef.current && !player) {
+            const playerInstance = new window.YT.Player(playerRef.current, {
+                height: '450',
+                width: "100%",
+                videoId: videoId,
+                playerVars: {
+                    autoplay: 1,  // Set to 1 for autoplay
+                    controls: 1,
+                },
+                events: {
+                    onReady: (event) => {
+                        event.target.playVideo();
+                    },
+                },
+            });
+            setPlayer(playerInstance);
+        }
+    };
+
+    useEffect(() => {
+        const loadYouTubeAPI = () => {
+            if (!window.YT) {
+                const tag = document.createElement('script');
+                tag.src = 'https://www.youtube.com/iframe_api';
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                tag.onload = () => {
+                    createPlayer();
+                };
+            } else {
+                createPlayer();
+            }
+        };
+
+        loadYouTubeAPI();
+
+        return () => {
+            if (player) {
+                player.destroy();
+            }
+        };
+    }, [videoId, player]);
+
+    // Update the player when the videoId changes
+    useEffect(() => {
+        if (player && videoId) {
+            player.loadVideoById(videoId);
+        }
+    }, [videoId]);
+
+    return (
+        <>
+            <NavBar />
+            <div className="yt-player-page">
+                <div className="left-part-yt">
+                    <div ref={playerRef}></div>
+                    <VideoInfo videoId={videoId} />
+                    <Comment videoId={videoId} />
+                </div>
+                <div className="right-part-yt">
+                    <RecommendedVideo channelName={channelData?.snippet?.localized?.title || "Default Channel"} />
+                </div>
+            </div>
+        </>
+    );
+};
+export default VideoPage;

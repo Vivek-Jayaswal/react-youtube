@@ -1,0 +1,72 @@
+.channel-details{
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 20px 0px;
+}
+
+
+.channel-image {
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+.channel-btn{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.right{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    span{
+        cursor: pointer;
+    }
+}
+
+.like-dislike{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    p{
+        padding: 0px 8px 0px 0px;
+        border-right: 1px solid gray;
+    }
+}
+
+.share{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.download{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.dot{
+    cursor: pointer;
+}
+
+.btn{
+    background-color: #272727;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-align: center;
+}
